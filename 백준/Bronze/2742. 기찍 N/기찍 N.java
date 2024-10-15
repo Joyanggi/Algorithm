@@ -8,7 +8,7 @@ public class Main {
 
         int N = Integer.parseInt(br.readLine());
 
-        for(int i = N; i > 0; i--){
+        for(int i = N; i > 0; i--) {
             System.out.println(i);
         }
     }
