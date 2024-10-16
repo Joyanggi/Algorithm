@@ -1,31 +1,40 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
+        StringTokenizer st;
+        int num;
 
-        int cnt = Integer.parseInt(sc.nextLine());
-        String num = sc.nextLine();
 
-        String[] numList = num.split(" ");
-        int[] parseStringList = new int[numList.length];
 
-        for(int i = 0; i < numList.length; i++) {
-            parseStringList[i] = Integer.parseInt(numList[i]);
-        }
+        int N = Integer.parseInt(br.readLine());
+        st = new StringTokenizer(br.readLine(), " ");
 
-        int minNum = parseStringList[0];
-        int maxNum = parseStringList[0];
+        int min = 0;
+        int max = 0;
+        
+        for(int i = 0; i < N; i++) {
+            num = Integer.parseInt(st.nextToken());
 
-        for(int i = 0; i < cnt; i++) {
-            if(parseStringList[i] > maxNum) {
-                maxNum = parseStringList[i];
+            if(i == 0) {
+                min = num;
+                max = num;
             }
-            if(parseStringList[i] < minNum) {
-                minNum = parseStringList[i];
-            }
-        }
 
-        System.out.println(minNum + " " + maxNum);
+            if(num > max) {
+                max = num;
+            }
+
+            if(num < min) {
+                min = num;
+            }
+
+        }
+        System.out.println(min + " " + max);
     }
 }
