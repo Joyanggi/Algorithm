@@ -1,18 +1,19 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        Scanner sc = new Scanner(System.in);
+        int N = Integer.parseInt(br.readLine());
 
-        int cnt = sc. nextInt();
-        String star = "*";
-
-        for(int i = 0; i < cnt; i++) {
-            System.out.println(star);
-            star += "*";
+        for(int i = 1; i <= N; i++) {
+            System.out.print("*");
+            for(int j = 0; j < i-1; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
         }
-
-
     }
 }
